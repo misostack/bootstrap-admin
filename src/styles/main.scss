@@ -45,6 +45,11 @@ $fa-font-path: "../assets/webfonts";
   --ct-menu-condensed-link-bg: #727cf5;
 }
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 // reset css
 .form-control {
   border-color: var(--ct-border-color);
@@ -76,7 +81,7 @@ a {
 }
 
 .wrapper {
-  height: 100%;
+  min-height: 100%;
   width: 100%;
 }
 
@@ -853,7 +858,8 @@ html[data-sidenav-size="condensed"]:not([data-layout="topnav"])
   .wrapper
   .content-page {
   margin-left: var(--ct-leftbar-width-sm);
-  min-height: var(--ct-leftbar-condensed-height);
+  //   min-height: var(--ct-leftbar-condensed-height);
+  min-height: calc(100vh - var(--ct-topbar-height));
 }
 html[data-sidenav-size="condensed"]:not([data-layout="topnav"]) .menu-arrow {
   display: none;
@@ -861,4 +867,23 @@ html[data-sidenav-size="condensed"]:not([data-layout="topnav"]) .menu-arrow {
 
 .simplebar-scrollbar:before {
   background-color: white !important;
+}
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: var(--ct-footer-height);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0 1.5rem;
+  color: var(--ct-emphasis-color);
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  border-top: 1px solid var(--ct-border-color);
 }
